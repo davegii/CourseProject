@@ -5,27 +5,35 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 def overall_sentiment(text):
     v = SentimentIntensityAnalyzer()
     percent_sentiment = v.polarity_scores(text)
-    print("Text is:", text)
+    #print("Text is:", text)
+    print("Text is:", text.strip())
     print("Breakdown: ", percent_sentiment)
     print("Text was rated as ", percent_sentiment['neg']*100, "% Negative")
     print("Text was rated as ", percent_sentiment['neu']*100, "% Neutral")
     print("Text was rated as ", percent_sentiment['pos']*100, "% Positive")
 
-    print("Sentence overall rated As", end = " ")
+    #print("Sentence overall rated as", end = " ")
  
     if percent_sentiment['neg'] < 0.1:
         if percent_sentiment['pos']-percent_sentiment['neg'] > 0 or percent_sentiment['compound'] >= 0.5:
-            print("Positive")
+            print("Sentence overall rated as positive")
+            print("\n")
+            #print("Positive")
             return "Positive"
  
-    elif percent_sentiment['pos'] < 0.1:
+    if percent_sentiment['pos'] < 0.1:
         if percent_sentiment['pos']-percent_sentiment['neg'] <= 0 or percent_sentiment['compound'] <= -0.5: # The "=" makes it better
-            print("Negative")
+            print("Sentence overall rated as positive")
+            print("\n")
+           #print("Negative")
             return "Negative"
         
     else :
-        print("Neutral")
+        print("Sentence overall rated as positive")
+        print("\n")
+        #print("Neutral")
         return "Neutral"
+    
 
 
 pos_count = 0
@@ -50,7 +58,5 @@ for line in file_negative_lines:
         neg_correct += 1
     neg_count += 1
 
-
 print("Positive accuracy using vader= {}% via {} samples".format(pos_correct/pos_count*100.0, pos_count))
 print("Negative accuracy using vader= {}% via {} samples".format(neg_correct/neg_count*100.0, neg_count))
-print(" ")

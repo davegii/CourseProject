@@ -10,10 +10,7 @@ import preprocessor as p
 import analysis
 import emoji
 
-consumer_key = "eWDIfDxXrYCfIcZmrnyqDa8MF"
-consumer_secret =  "rK86MTAtzC8mVcZfs4ximI2TXcZGCQub7q3GnlGQtgIvJiXdn7"
-access_key= "1465826212861943809-JKsYmTnPRKN2UEuzO1gZhLph0mmdqA"
-access_secret = "Jhl8q3suY45Avrm2SgchC8BsqNzoVvkB8enAukuXFTRu9"
+#Place Key from CMT here
  
 # Remove Emojis
 def give_emoji_free_text(text):

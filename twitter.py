@@ -10,6 +10,11 @@ import preprocessor as p
 import analysis
 import emoji
 
+consumer_key = "eWDIfDxXrYCfIcZmrnyqDa8MF"
+consumer_secret =  "rK86MTAtzC8mVcZfs4ximI2TXcZGCQub7q3GnlGQtgIvJiXdn7"
+access_key= "1465826212861943809-JKsYmTnPRKN2UEuzO1gZhLph0mmdqA"
+access_secret = "Jhl8q3suY45Avrm2SgchC8BsqNzoVvkB8enAukuXFTRu9"
+ 
 # Remove Emojis
 def give_emoji_free_text(text):
     allchars = [str for str in text]
@@ -31,7 +36,3 @@ for tweets in api.search_tweets(q=new_search, lang="en", count=100, since_id=0):
     print(tweets.text)
     text = give_emoji_free_text(text=tweets.text)
     analysis.overall_sentiment(text)
-# #for tweet in tweepy.Cursor(api.search_tweets,q=new_search,count=100,
-#                            lang="en",
-#                            since_id=0).items():
-#                            print(tweet.text.encode('utf-8'))

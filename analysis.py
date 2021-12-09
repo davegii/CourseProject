@@ -35,7 +35,7 @@ def overall_sentiment(text):
         return "Neutral"
     
 
-
+# UNCOMMENT BELOW TO RUN TESTS
 # pos_count = 0
 # pos_correct = 0
 
